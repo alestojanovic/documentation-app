@@ -1,7 +1,6 @@
-// eslint-disable-next-line no-unused-vars
 const webpack = require("webpack");
 const path = require("path");
-const HtmlWebackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 process.env.NODE_ENV = "development";
 
@@ -24,9 +23,9 @@ module.exports = {
     https: false,
   },
   plugins: [
-    new HtmlWebackPlugin({
-      template: "src/index.html",
-      favicon: "src/favicon.ico",
+    new HtmlWebpackPlugin({
+      template: "public/index.html",
+      favicon: "public/favicon.ico",
     }),
   ],
   module: {

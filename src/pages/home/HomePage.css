@@ -1,0 +1,18 @@
+.link-button {
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #03a5fc;
+  background-color: #03a5fc;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.jumbotrone {
+  display: block;
+  padding: 5%;
+  background-color: #e8f3ff;
+  line-height: 1.5;
+}
