@@ -1,5 +1,3 @@
-# Building Applications in React and Redux
-
 ## Get Started
 
 1. **Install [Node 8](https://nodejs.org)** or newer.
