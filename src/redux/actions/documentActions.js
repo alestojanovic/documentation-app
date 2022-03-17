@@ -1,3 +1,5 @@
+import * as types from "./actionTypes";
+
 export function createDocument(document) {
-  return { type: "CREATE_DOCUMENT", document };
+  return { type: types.CREATE_DOCUMENT, document };
 }
