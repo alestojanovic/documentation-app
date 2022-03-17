@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { connect, useDispatch } from "react-redux";
+import * as documentActions from "../../redux/actions/documentActions";
 import "./DocumentsPage.css";
 
-const DocumentsPage = () => {
+const DocumentsPage = ({ documents }) => {
+  const dispatch = useDispatch();
   const [document, setDocument] = useState({ title: "" });
 
   const handleChange = (event) => {
@@ -11,7 +15,7 @@ const DocumentsPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(document.title);
+    dispatch(documentActions.createDocument(document));
   };
 
   return (
@@ -27,8 +31,21 @@ const DocumentsPage = () => {
         />
         <input className="submit-button" type="submit" value="Save" />
       </span>
+      {documents.map((document) => (
+        <div key={document.title}>{document.title}</div>
+      ))}
     </form>
   );
 };
 
-export default DocumentsPage;
+DocumentsPage.propTypes = {
+  documents: PropTypes.array.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    documents: state.documents,
+  };
+}
+
+export default connect(mapStateToProps)(DocumentsPage);
