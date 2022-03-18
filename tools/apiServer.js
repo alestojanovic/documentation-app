@@ -19,7 +19,7 @@ const router = jsonServer.router(path.join(__dirname, "db.json"));
 // Can pass a limited number of options to this to override (some) defaults. See https://github.com/typicode/json-server#api
 const middlewares = jsonServer.defaults({
   // Display json-server's built in homepage when json-server starts.
-  static: "node_modules/json-server/dist",
+  static: "node_modules/json-server/public",
 });
 
 // Set default middlewares (logger, static, cors and no-cache)
@@ -44,12 +44,12 @@ server.use((req, res, next) => {
   next();
 });
 
-server.post("/courses/", function (req, res, next) {
-  const error = validateCourse(req.body);
+server.post("/documents/", function (req, res, next) {
+  const error = validateDocument(req.body);
   if (error) {
     res.status(400).send(error);
   } else {
-    req.body.slug = createSlug(req.body.title); // Generate a slug for new courses.
+    req.body.slug = createSlug(req.body.title); // Generate a slug for new document.
     next();
   }
 });
@@ -73,9 +73,9 @@ function createSlug(value) {
     .toLowerCase();
 }
 
-function validateCourse(course) {
-  if (!course.title) return "Title is required.";
-  if (!course.authorId) return "Author is required.";
-  if (!course.category) return "Category is required.";
+function validateDocument(document) {
+  if (!document.title) return "Title is required.";
+  if (!document.authorId) return "Author is required.";
+  if (!document.category) return "Category is required.";
   return "";
 }
