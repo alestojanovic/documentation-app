@@ -5,7 +5,7 @@ export function loadAuthorsSuccess(authors) {
   return { type: types.LOAD_AUTHORS_SUCCESS, authors };
 }
 
-export function loadDocuments() {
+export function loadAuthors() {
   return function (dispatch) {
     return authorApi
       .getAuthors()
