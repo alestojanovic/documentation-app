@@ -19,15 +19,13 @@ const DocumentList = ({ documents }) => (
           <tr key={document.id}>
             <td>
               <a
-                className="watch-button"
+                className="read-button"
                 href={"http://pluralsight.com/courses/" + document.slug}
               >
-                Watch
+                Read
               </a>
             </td>
-            <td>
-              <Link to={"/document/" + document.slug}>{document.title}</Link>
-            </td>
+            <td>{document.title}</td>
             <td>{document.authorName}</td>
             <td>{document.category}</td>
           </tr>

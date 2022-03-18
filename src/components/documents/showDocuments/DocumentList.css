@@ -8,6 +8,7 @@
 #main-table th {
   border-top: 1px solid #ddd;
   padding: 8px;
+  color: #03a5fc;
 }
 
 #main-table tr:nth-child(even) {
@@ -26,16 +27,12 @@
   color: white;
 }
 
-#main-table a {
-  color: #03a5fc;
-}
-
-.watch-button {
+.read-button {
   border-radius: 3px;
   background-color: #41d69f;
   text-decoration: none;
   font-weight: 700;
-  color: white !important;
+  color: white;
   padding: 5px;
   cursor: pointer;
 }
