@@ -14,9 +14,7 @@ const DocumentsPage = ({ documents, authors, actions }) => {
         alert("Loading documents failed" + error);
       });
     }
-  }, []);
 
-  useEffect(() => {
     if (authors.length === 0) {
       actions.loadAuthors().catch((error) => {
         alert("Loading authors failed" + error);

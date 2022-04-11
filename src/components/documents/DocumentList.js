@@ -25,7 +25,9 @@ const DocumentList = ({ documents }) => (
                 Read
               </a>
             </td>
-            <td>{document.title}</td>
+            <td>
+              <Link to={"/document/" + document.slug}>{document.title}</Link>
+            </td>
             <td>{document.authorName}</td>
             <td>{document.category}</td>
           </tr>
