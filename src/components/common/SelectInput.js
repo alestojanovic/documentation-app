@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Inputs.css";
 
 const SelectInput = ({
   name,
@@ -13,7 +14,7 @@ const SelectInput = ({
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
-      <div className="field">
+      <div>
         {/* Note, value is set here rather than on the option - docs: https://facebook.github.io/react/docs/forms.html */}
         <select
           name={name}

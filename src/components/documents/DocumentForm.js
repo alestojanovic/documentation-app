@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
+import "./DocumentForm.css";
 
 const DocumentForm = ({
   document,
@@ -48,7 +49,7 @@ const DocumentForm = ({
         error={errors.category}
       />
 
-      <button type="submit" disabled={saving} className="">
+      <button type="submit" disabled={saving} className="save-button">
         {saving ? "Saving..." : "Save"}
       </button>
     </form>

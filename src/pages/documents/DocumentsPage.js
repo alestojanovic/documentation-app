@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as documentActions from "../../redux/actions/documentActions";
 import * as authorActions from "../../redux/actions/authorActions";
-import DocumentList from "../../components/documents/showDocuments/DocumentList";
+import DocumentList from "../../components/documents/DocumentList";
 import "./DocumentsPage.css";
 
 const DocumentsPage = ({ documents, authors, actions }) => {

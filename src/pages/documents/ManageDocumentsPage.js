@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loadDocuments } from "../../redux/actions/documentActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
-import DocumentForm from "../../components/documents/manageDocuments/DocumentForm";
+import DocumentForm from "../../components/documents/DocumentForm";
 import { newDocument } from "../../../tools/mockData";
 // import "./ManageDocumentsPage.css";
 
