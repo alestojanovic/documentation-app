@@ -6,8 +6,12 @@ export default function documentReducer(
   action
 ) {
   switch (action.type) {
-    case types.CREATE_DOCUMENT:
+    case types.CREATE_DOCUMENT_SUCCESS:
       return [...state, { ...action.document }];
+    case types.UPDATE_DOCUMENT_SUCCESS:
+      return state.map((document) =>
+        document.id === action.document.id ? action.document : document
+      );
     case types.LOAD_DOCUMENTS_SUCCESS:
       return action.documents;
     default:
