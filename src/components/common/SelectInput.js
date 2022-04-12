@@ -13,14 +13,16 @@ const SelectInput = ({
 }) => {
   return (
     <div className="form-group">
-      <label htmlFor={name}>{label}</label>
+      <label className="input-label" htmlFor={name}>
+        {label}
+      </label>
       <div>
         {/* Note, value is set here rather than on the option - docs: https://facebook.github.io/react/docs/forms.html */}
         <select
           name={name}
           value={value}
           onChange={onChange}
-          className="form-control"
+          className="select-control"
         >
           <option value="">{defaultOption}</option>
           {options.map((option) => {
