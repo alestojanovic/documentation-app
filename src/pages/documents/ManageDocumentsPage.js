@@ -15,6 +15,7 @@ const ManageDocumentsPage = ({
   loadAuthors,
   loadDocuments,
   saveDocument,
+  history,
   ...props
 }) => {
   const [document, setDocument] = useState({ ...props.document });
@@ -25,6 +26,8 @@ const ManageDocumentsPage = ({
       loadDocuments().catch((error) => {
         alert("Loading documents failed" + error);
       });
+    } else {
+      setDocument({ ...props.document });
     }
 
     if (authors.length === 0) {
@@ -32,7 +35,7 @@ const ManageDocumentsPage = ({
         alert("Loading authors failed" + error);
       });
     }
-  }, []);
+  }, [props.document]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -44,7 +47,9 @@ const ManageDocumentsPage = ({
 
   const handleSave = (event) => {
     event.preventDefault();
-    saveDocument(document);
+    saveDocument(document).then(() => {
+      history.push("/documents");
+    });
   };
 
   return (
@@ -65,11 +70,21 @@ ManageDocumentsPage.propTypes = {
   loadDocuments: PropTypes.func.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   saveDocument: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
-function mapStateToProps(state) {
+export function getDocumentBySlug(documents, slug) {
+  return documents.find((document) => document.slug === slug) || null;
+}
+
+function mapStateToProps(state, ownProps) {
+  const slug = ownProps.match.params.slug;
+  const document =
+    slug && state.documents.length > 0
+      ? getDocumentBySlug(state.documents, slug)
+      : newDocument;
   return {
-    document: newDocument,
+    document,
     documents: state.documents,
     authors: state.authors,
   };

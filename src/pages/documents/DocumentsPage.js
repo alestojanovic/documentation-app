@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -8,6 +9,12 @@ import DocumentList from "../../components/documents/DocumentList";
 import "./DocumentsPage.css";
 
 const DocumentsPage = ({ documents, authors, actions }) => {
+  const history = useHistory();
+  const routeChange = () => {
+    let path = `/document`;
+    history.push(path);
+  };
+
   useEffect(() => {
     if (documents.length === 0) {
       actions.loadDocuments().catch((error) => {
@@ -25,6 +32,11 @@ const DocumentsPage = ({ documents, authors, actions }) => {
   return (
     <>
       <h2>Documents</h2>
+
+      <button className="add-button" onClick={routeChange}>
+        Add Document
+      </button>
+
       <DocumentList documents={documents} />
     </>
   );
