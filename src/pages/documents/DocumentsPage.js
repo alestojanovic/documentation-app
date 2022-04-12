@@ -6,9 +6,10 @@ import { bindActionCreators } from "redux";
 import * as documentActions from "../../redux/actions/documentActions";
 import * as authorActions from "../../redux/actions/authorActions";
 import DocumentList from "../../components/documents/DocumentList";
+import Spinner from "../../components/common/Spinner";
 import "./DocumentsPage.css";
 
-const DocumentsPage = ({ documents, authors, actions }) => {
+const DocumentsPage = ({ documents, authors, actions, loading }) => {
   const history = useHistory();
   const routeChange = () => {
     let path = `/document`;
@@ -32,12 +33,16 @@ const DocumentsPage = ({ documents, authors, actions }) => {
   return (
     <>
       <h2>Documents</h2>
-
-      <button className="add-button" onClick={routeChange}>
-        Add Document
-      </button>
-
-      <DocumentList documents={documents} />
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <button className="add-button" onClick={routeChange}>
+            Add Document
+          </button>
+          <DocumentList documents={documents} />
+        </>
+      )}
     </>
   );
 };
@@ -46,6 +51,7 @@ DocumentsPage.propTypes = {
   documents: PropTypes.array.isRequired,
   authors: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -61,6 +67,7 @@ function mapStateToProps(state) {
             };
           }),
     authors: state.authors,
+    loading: state.apiCallsInProgress > 0,
   };
 }
 

@@ -1,5 +1,6 @@
 import * as types from "./actionTypes";
 import * as documentApi from "../../api/documentApi";
+import { beginApiCall } from "./apiStatusActions";
 
 export function loadDocumentSuccess(documents) {
   return { type: types.LOAD_DOCUMENTS_SUCCESS, documents };
@@ -15,6 +16,7 @@ export function createDocumentSuccess(document) {
 
 export function loadDocuments() {
   return function (dispatch) {
+    dispatch(beginApiCall());
     return documentApi
       .getDocuments()
       .then((documents) => {
@@ -27,7 +29,9 @@ export function loadDocuments() {
 }
 
 export function saveDocument(document) {
+  // eslint-disable-next-line no-unused-vars
   return function (dispatch, getState) {
+    dispatch(beginApiCall());
     return documentApi
       .saveDocument(document)
       .then((savedDocument) => {
