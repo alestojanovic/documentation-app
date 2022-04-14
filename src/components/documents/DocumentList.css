@@ -16,7 +16,6 @@
 }
 
 #main-table tr:hover {
-  /* background-color: #d7fff6; */
   background-image: linear-gradient(to right, #fdd8d8, #d7fff6);
 }
 
