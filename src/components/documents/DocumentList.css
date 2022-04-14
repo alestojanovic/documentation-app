@@ -16,7 +16,8 @@
 }
 
 #main-table tr:hover {
-  background-color: #f6dafd;
+  /* background-color: #d7fff6; */
+  background-image: linear-gradient(to right, #fdd8d8, #d7fff6);
 }
 
 #main-table th {
@@ -30,7 +31,6 @@
 .read-button {
   border-radius: 5px;
   background-color: transparent;
-  border-style: none;
   color: #41d69f;
   text-decoration: none;
   padding: 10px 15px 10px 15px;
@@ -46,7 +46,6 @@
 .delete-button {
   border-radius: 5px;
   background-color: transparent;
-  border-style: none;
   color: red;
   text-decoration: none;
   padding: 10px 15px 10px 15px;
