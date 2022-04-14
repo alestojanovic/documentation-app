@@ -29,6 +29,15 @@ const DocumentsPage = ({ documents, authors, actions }) => {
     }
   }, []);
 
+  const handleDeleteDocument = async (document) => {
+    toast.success("Document deleted");
+    try {
+      await actions.deleteDocument(document);
+    } catch (error) {
+      toast.error("Delete failed " + error.message, { autoClose: false });
+    }
+  };
+
   return (
     <>
       <h2>Documents</h2>
@@ -39,7 +48,10 @@ const DocumentsPage = ({ documents, authors, actions }) => {
           <button className="add-button" onClick={routeChange}>
             Add Document
           </button>
-          <DocumentList documents={documents} />
+          <DocumentList
+            onDeleteClick={handleDeleteDocument}
+            documents={documents}
+          />
         </>
       )}
     </>
@@ -75,8 +87,11 @@ function mapDispatchToProps(dispatch) {
         documentActions.loadDocuments,
         dispatch
       ),
-
       loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
+      deleteDocument: bindActionCreators(
+        documentActions.deleteDocument,
+        dispatch
+      ),
     },
   };
 }

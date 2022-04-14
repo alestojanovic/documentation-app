@@ -28,11 +28,33 @@
 }
 
 .read-button {
-  border-radius: 3px;
-  background-color: #41d69f;
+  border-radius: 5px;
+  background-color: transparent;
+  border-style: none;
+  color: #41d69f;
   text-decoration: none;
-  font-weight: 700;
-  color: white;
-  padding: 5px;
+  padding: 10px 15px 10px 15px;
   cursor: pointer;
+  border: 1px solid #41d69f;
+}
+
+.read-button:focus {
+  background-color: #41d69f;
+  color: white;
+}
+
+.delete-button {
+  border-radius: 5px;
+  background-color: transparent;
+  border-style: none;
+  color: red;
+  text-decoration: none;
+  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+  border: 1px solid red;
+}
+
+.delete-button:focus {
+  background-color: red;
+  color: white;
 }

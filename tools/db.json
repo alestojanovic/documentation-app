@@ -1,34 +1,6 @@
 {
   "documents": [
     {
-      "id": 1,
-      "title": "Securing React Apps with Auth0",
-      "slug": "react-auth0-authentication-security",
-      "authorId": 1,
-      "category": "JavaScript"
-    },
-    {
-      "id": 2,
-      "title": "React: The Big Picture",
-      "slug": "react-big-picture",
-      "authorId": 1,
-      "category": "JavaScript"
-    },
-    {
-      "id": 3,
-      "title": "Creating Reusable React Components",
-      "slug": "react-creating-reusable-components",
-      "authorId": 1,
-      "category": "JavaScript"
-    },
-    {
-      "id": 4,
-      "title": "Building a JavaScript Development Environment",
-      "slug": "javascript-development-environment",
-      "authorId": 1,
-      "category": "JavaScript"
-    },
-    {
       "id": 5,
       "title": "Building Applications with React and Redux",
       "slug": "react-redux-react-router-es6",
@@ -69,30 +41,6 @@
       "slug": "web-components-shadow-dom",
       "authorId": 1,
       "category": "HTML5"
-    },
-    {
-      "id": 11,
-      "title": "sqw",
-      "authorId": 1,
-      "category": "wqwq",
-      "createdAt": 1649923912322,
-      "slug": "sqw"
-    },
-    {
-      "id": 12,
-      "title": "aaa",
-      "authorId": 1,
-      "category": "aaa",
-      "createdAt": 1649924203977,
-      "slug": "aaa"
-    },
-    {
-      "id": 13,
-      "title": "weqew",
-      "authorId": 1,
-      "category": "qeq",
-      "createdAt": 1649927479264,
-      "slug": "weqew"
     }
   ],
   "authors": [

@@ -14,6 +14,8 @@ export default function documentReducer(
       );
     case types.LOAD_DOCUMENTS_SUCCESS:
       return action.documents;
+    case types.DELETE_DOCUMENT_OPTIMISTIC:
+      return state.filter((document) => document.id !== action.document.id);
     default:
       return state;
   }
