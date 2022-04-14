@@ -8,6 +8,7 @@ import {
 import { loadAuthors } from "../../redux/actions/authorActions";
 import DocumentForm from "../../components/documents/DocumentForm";
 import { newDocument } from "../../../tools/mockData";
+import Spinner from "../../components/common/Spinner";
 
 const ManageDocumentsPage = ({
   documents,
@@ -52,7 +53,9 @@ const ManageDocumentsPage = ({
     });
   };
 
-  return (
+  return authors.length === 0 || documents === 0 ? (
+    <Spinner />
+  ) : (
     <DocumentForm
       document={document}
       errors={errors}

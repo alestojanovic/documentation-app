@@ -9,7 +9,7 @@ import DocumentList from "../../components/documents/DocumentList";
 import Spinner from "../../components/common/Spinner";
 import "./DocumentsPage.css";
 
-const DocumentsPage = ({ documents, authors, actions, loading }) => {
+const DocumentsPage = ({ documents, authors, actions }) => {
   const history = useHistory();
   const routeChange = () => {
     let path = `/document`;
@@ -22,7 +22,6 @@ const DocumentsPage = ({ documents, authors, actions, loading }) => {
         alert("Loading documents failed" + error);
       });
     }
-
     if (authors.length === 0) {
       actions.loadAuthors().catch((error) => {
         alert("Loading authors failed" + error);
@@ -33,7 +32,7 @@ const DocumentsPage = ({ documents, authors, actions, loading }) => {
   return (
     <>
       <h2>Documents</h2>
-      {loading ? (
+      {authors.length === 0 || documents === 0 ? (
         <Spinner />
       ) : (
         <>
@@ -51,7 +50,6 @@ DocumentsPage.propTypes = {
   documents: PropTypes.array.isRequired,
   authors: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -67,7 +65,6 @@ function mapStateToProps(state) {
             };
           }),
     authors: state.authors,
-    loading: state.apiCallsInProgress > 0,
   };
 }
 
