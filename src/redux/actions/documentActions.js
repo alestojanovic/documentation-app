@@ -1,6 +1,6 @@
 import * as types from "./actionTypes";
 import * as documentApi from "../../api/documentApi";
-import { beginApiCall } from "./apiStatusActions";
+import { beginApiCall, apiCallError } from "./apiStatusActions";
 
 export function loadDocumentSuccess(documents) {
   return { type: types.LOAD_DOCUMENTS_SUCCESS, documents };
@@ -23,6 +23,7 @@ export function loadDocuments() {
         dispatch(loadDocumentSuccess(documents));
       })
       .catch((error) => {
+        dispatch(apiCallError(error));
         throw error;
       });
   };
@@ -40,6 +41,7 @@ export function saveDocument(document) {
           : dispatch(createDocumentSuccess(savedDocument));
       })
       .catch((error) => {
+        dispatch(apiCallError(error));
         throw error;
       });
   };

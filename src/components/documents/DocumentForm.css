@@ -8,3 +8,11 @@
   padding: 10px 15px 10px 15px;
   cursor: pointer;
 }
+
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}

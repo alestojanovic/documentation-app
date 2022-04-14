@@ -16,7 +16,7 @@ const DocumentForm = ({
     <form onSubmit={onSave}>
       <h2>{document.id ? "Edit" : "Add"} Document</h2>
       {errors.onSave && (
-        <div className="alert" role="alert">
+        <div role="alert" className="alert">
           {errors.onSave}
         </div>
       )}

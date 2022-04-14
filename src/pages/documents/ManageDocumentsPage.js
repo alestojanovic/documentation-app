@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 import {
   loadDocuments,
   saveDocument,
@@ -21,11 +22,12 @@ const ManageDocumentsPage = ({
 }) => {
   const [document, setDocument] = useState({ ...props.document });
   const [errors, setErrors] = useState({});
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (documents.length === 0) {
       loadDocuments().catch((error) => {
-        alert("Loading documents failed" + error);
+        toast.error("Loading documents failed" + error);
       });
     } else {
       setDocument({ ...props.document });
@@ -33,7 +35,7 @@ const ManageDocumentsPage = ({
 
     if (authors.length === 0) {
       loadAuthors().catch((error) => {
-        alert("Loading authors failed" + error);
+        toast.error("Loading documents failed" + error);
       });
     }
   }, [props.document]);
@@ -48,9 +50,16 @@ const ManageDocumentsPage = ({
 
   const handleSave = (event) => {
     event.preventDefault();
-    saveDocument(document).then(() => {
-      history.push("/documents");
-    });
+    setSaving(true);
+    saveDocument(document)
+      .then(() => {
+        toast.success("Document saved.");
+        history.push("/documents");
+      })
+      .catch((error) => {
+        setSaving(false);
+        setErrors({ onSave: error.message });
+      });
   };
 
   return authors.length === 0 || documents === 0 ? (
@@ -62,6 +71,7 @@ const ManageDocumentsPage = ({
       authors={authors}
       onChange={handleChange}
       onSave={handleSave}
+      saving={saving}
     />
   );
 };

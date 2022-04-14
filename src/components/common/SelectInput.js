@@ -33,7 +33,11 @@ const SelectInput = ({
             );
           })}
         </select>
-        {error && <div className="alert alert-danger">{error}</div>}
+        {error && (
+          <div role="alert" className="alert">
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { toast } from "react-toastify";
 import * as documentActions from "../../redux/actions/documentActions";
 import * as authorActions from "../../redux/actions/authorActions";
 import DocumentList from "../../components/documents/DocumentList";
@@ -15,16 +16,15 @@ const DocumentsPage = ({ documents, authors, actions }) => {
     let path = `/document`;
     history.push(path);
   };
-
   useEffect(() => {
     if (documents.length === 0) {
       actions.loadDocuments().catch((error) => {
-        alert("Loading documents failed" + error);
+        toast.error("Loading documents failed" + error);
       });
     }
     if (authors.length === 0) {
       actions.loadAuthors().catch((error) => {
-        alert("Loading authors failed" + error);
+        toast.error("Loading authors failed" + error);
       });
     }
   }, []);
