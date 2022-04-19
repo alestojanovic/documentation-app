@@ -7,6 +7,7 @@ import AboutPage from "./pages/about/AboutPage";
 import Header from "./components/common/Header";
 import PageNotFound from "./components/PageNotFound";
 import DocumentsPage from "./pages/documents/DocumentsPage";
+// eslint-disable-next-line import/no-named-as-default
 import ManageDocumentsPage from "./pages/documents/ManageDocumentsPage";
 import "./App.css";
 

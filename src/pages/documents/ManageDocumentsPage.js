@@ -11,7 +11,7 @@ import DocumentForm from "../../components/documents/DocumentForm";
 import { newDocument } from "../../../tools/mockData";
 import Spinner from "../../components/common/Spinner";
 
-const ManageDocumentsPage = ({
+export const ManageDocumentsPage = ({
   documents,
   authors,
   loadAuthors,
