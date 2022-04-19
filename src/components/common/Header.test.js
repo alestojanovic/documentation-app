@@ -7,3 +7,13 @@ it("contains 3 navlinks via shallow", () => {
   const numLinks = shallow(<Header />).find("NavLink").length;
   expect(numLinks).toEqual(3);
 });
+
+it("contains 3 anchors via mount", () => {
+  const numAnchors = mount(
+    <MemoryRouter>
+      <Header />
+    </MemoryRouter>
+  ).find("a").length;
+
+  expect(numAnchors).toEqual(3);
+});
